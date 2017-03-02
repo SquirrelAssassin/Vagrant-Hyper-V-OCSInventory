@@ -24,14 +24,14 @@ config.ssh.insert_key = false
 config.vm.box_check_update = false 
 config.vm.synced_folder ".", "/vagrant", disabled: true
 config.vm.network :private_network, "bridge": "onenetwork"
-  config.vm.define :tester do |tester|
-        tester.vm.box = "cdaf/CentOSLVM"
-		tester.vm.provider :hyperv do |tester| 
-		tester.vmname = "tester"
-		tester.memory = "2048"
-		tester.cpus = 2 
-		tester.differencing_disk = "true"
+  config.vm.define :ocs do |ocs|
+        ocs.vm.box = "cdaf/CentOSLVM"
+		ocs.vm.provider :hyperv do |ocs| 
+		ocs.vmname = "ocs"
+		ocs.memory = "2048"
+		ocs.cpus = 2 
+		ocs.differencing_disk = "true"
 	  end
-      tester.vm.provision "shell", inline: $script
+      ocs.vm.provision "shell", inline: $script
 	end
 end 
